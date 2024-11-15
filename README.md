@@ -18,13 +18,13 @@ Description of custom sorting algorithm
 
 A Creative Sorting Algorithm
 
-The AlexanderPrincessSort algorithm combines the simplicity of bubble sort with the efficiency of merge sort. Here's how it works:
+The AlexanderPrincessSort algorithm combines the simplicity of bubble sort with the efficiency of merge sort. Descritopn below:
 
     Bubble Sort: First, we apply a single pass of bubble sort to the array. Bubble sort is fast for small or nearly sorted arrays because it checks adjacent elements and swaps them if they're out of order. If no swaps are made in a pass, we know the array is already sorted and can stop early.
 
     Merge Sort: If the array isn’t sorted after the bubble sort pass, we use merge sort. This breaks the array into smaller subarrays, sorts them, and then merges them back together in order. Merge sort is better for larger or more disordered arrays, ensuring efficiency even when the data is not nearly sorted.
 
-By combining these two approaches, BubbleMergeSort adapts to the data, making it faster for small or partially sorted arrays while still being efficient for larger, more scrambled ones.
+By combining these two approaches, BubbleMergeSort adapts to the data, making it faster for small or partially sorted arrays while still being efficient for larger, more out of order ones.
 
 Notes on using Copilot (or other AI)
 ------------------------------------
