@@ -9,6 +9,7 @@ import java.util.Comparator;
  *   The types of values that are sorted.
  *
  * @author Samuel A. Rebelsky
+ * @author Princess Alexander
  */
 
 public class SelectionSorter<T> implements Sorter<T> {
@@ -55,6 +56,22 @@ public class SelectionSorter<T> implements Sorter<T> {
    */
   @Override
   public void sort(T[] values) {
-    // STUB
+    // Traverse the array from the first element to the second last
+    for (int i = 0; i < values.length - 1; i++) {
+      // Find the minimum element in the unsorted portion
+      int minIndex = i;
+      for (int j = i + 1; j < values.length; j++) {
+        if (order.compare(values[j], values[minIndex]) < 0) {
+          minIndex = j;  // Update minIndex if a smaller element is found
+        } // if
+      } //for
+
+      // If minIndex is not the same as i, swap the elements
+      if (minIndex != i) {
+        T temp = values[i];
+        values[i] = values[minIndex];
+        values[minIndex] = temp;
+      } // if
+    } // for
   } // sort(T[])
 } // class SelectionSorter
