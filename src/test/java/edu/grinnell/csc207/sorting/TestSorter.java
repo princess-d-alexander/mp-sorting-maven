@@ -1,23 +1,19 @@
 package edu.grinnell.csc207.sorting;
 
-import edu.grinnell.csc207.util.ArrayUtils;
-
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
+
+import edu.grinnell.csc207.util.ArrayUtils;
 
 /**
  * Tests of Sorter objects. Please do not use this class directly.
  * Rather, you should subclass it and initialize stringSorter and
  * intSorter in a static @BeforeAll method.
  *
- * @author Your Name
+ * @author Princess Alexander
  * @uathor Samuel A. Rebelsky
  */
 public class TestSorter {
@@ -84,7 +80,7 @@ public class TestSorter {
     if (null == stringSorter) {
       return;
     } // if
-    String[] original = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
+    String[] original = { "apple", "canyon", "dragonfly", "echo", "fable" };
     String[] expected = original.clone();
     assertSorts(expected, original, stringSorter);
   } // orderedStringTest
@@ -97,27 +93,48 @@ public class TestSorter {
     if (null == stringSorter) {
       return;
     } // if
-    String[] original = { "foxtrot", "delta", "charlie", "bravo", "alpha" };
-    String[] expected = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
+    String[] original = { "whisper", "violet", "treasure", "quartz", "oasis" };
+    String[] expected = { "oasis", "quartz", "treasure", "violet", "whisper" };
     assertSorts(expected, original, stringSorter);
-  } // orderedStringTest
+  } // reverseOrderedStringTest
 
   /**
-   * Ensure that a randomly permuted version of a moderate-sized
-   * array sorts correctly.
+   * Ensure that an array with duplicate elements sorts correctly.
    */
-  @Test 
-  public void permutedIntegersTest() { 
-    int SIZE = 100; 
-    if (null == intSorter) { 
-      return; 
+  @Test
+  public void duplicateStringTest() {
+    if (null == stringSorter) {
+      return;
     } // if
-    Integer[] original = new Integer[SIZE];
-    for (int i = 0; i < SIZE; i++) {
-      original[i] = i;
-    } // for
-    Integer[] expected = original.clone();
+    String[] original = { "apple", "apple", "banana", "banana", "cherry" };
+    String[] expected = { "apple", "apple", "banana", "banana", "cherry" };
     ArrayUtils.permute(original);
-    assertSorts(expected, original, intSorter);
-  } // permutedIntegers
+    assertSorts(expected, original, stringSorter);
+  } // duplicateStringTest
+
+  /**
+   * Ensure that an empty array is handled correctly.
+   */
+  @Test
+  public void emptyArrayTest() {
+    if (null == stringSorter) {
+      return;
+    } // if
+    String[] original = {};
+    String[] expected = {};
+    assertSorts(expected, original, stringSorter);
+  } // emptyArrayTest
+
+    /**
+   * Ensure that a single-element array is handled correctly.
+   */
+  @Test
+  public void singleElementTest() {
+    if (null == stringSorter) {
+      return;
+    } // if
+    String[] original = { "alone" };
+    String[] expected = { "alone" };
+    assertSorts(expected, original, stringSorter);
+  } // singleElementTest
 } // class TestSorter
