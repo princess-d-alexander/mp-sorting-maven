@@ -9,7 +9,7 @@ import java.util.Comparator;
  *   The types of values that are sorted.
  *
  * @author Samuel A. Rebelsky
- * 
+ * @author Princess Alexander
  */
 
 public class InsertionSorter<T> implements Sorter<T> {
